@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{2D993F03-99A1-48A7-95C3-EAAFCD793E33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>PinnaclePlus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PinnaclePlus.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PinnaclePlus.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus">
+      <HintPath>..\..\dlls\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\dlls\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\dlls\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft Enterprise Library 5.0\Bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft Enterprise Library 5.0\Bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Common, Version=2.0.6083.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dlls\Rebex.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Networking, Version=3.0.6083.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dlls\Rebex.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Sftp, Version=3.0.6083.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dlls\Rebex.Sftp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon\00-Sel.png" />
+    <Content Include="icon\00.png" />
+    <Content Include="icon\01-Sel.png" />
+    <Content Include="icon\01.png" />
+    <Content Include="icon\02.gif" />
+    <Content Include="icon\02.png" />
+    <Content Include="icon\1.png" />
+    <Content Include="icon\10.png" />
+    <Content Include="icon\11.png" />
+    <Content Include="icon\13.png" />
+    <Content Include="icon\1m.png" />
+    <Content Include="icon\2.png" />
+    <Content Include="icon\3.png" />
+    <Content Include="icon\3m.png" />
+    <Content Include="icon\ajax.gif" />
+    <Content Include="icon\alert.gif" />
+    <Content Include="icon\alert.png" />
+    <Content Include="icon\break.png" />
+    <Content Include="icon\cross.gif" />
+    <Content Include="icon\del.png" />
+    <Content Include="icon\down.gif" />
+    <Content Include="icon\hub1.png" />
+    <Content Include="icon\invalid.png" />
+    <Content Include="icon\lock-close.png" />
+    <Content Include="icon\lock-open.png" />
+    <Content Include="icon\nv.png" />
+    <Content Include="icon\nvdone.png" />
+    <Content Include="icon\Optimize.png" />
+    <Content Include="icon\order.png" />
+    <Content Include="icon\path.png" />
+    <Content Include="icon\pin.png" />
+    <Content Include="icon\print.png" />
+    <Content Include="icon\reorder.png" />
+    <Content Include="icon\save.png" />
+    <Content Include="icon\up.gif" />
+    <Content Include="man_api.aspx" />
+    <Content Include="map_view.aspx" />
+    <Content Include="nvrun.aspx" />
+    <Content Include="reports_admin.aspx" />
+    <Content Include="Campus.aspx" />
+    <Content Include="nv_export.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="test.html" />
+    <Content Include="Trash\export_batches.aspx" />
+    <Content Include="getof.aspx" />
+    <Content Include="reports.aspx" />
+    <Content Include="menu_action.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="home.aspx" />
+    <Content Include="log_out.aspx" />
+    <Content Include="config_change.aspx" />
+    <Content Include="Styles\images\ajax-loader.gif" />
+    <Content Include="Styles\images\cog.png" />
+    <Content Include="Styles\images\cross.gif" />
+    <Content Include="Styles\images\logo.png" />
+    <Content Include="Styles\images\tick.gif" />
+    <Content Include="Styles\menu_css.css" />
+    <Content Include="users.aspx" />
+    <Content Include="no_rights.aspx" />
+    <Content Include="User_Control\left_menu.ascx" />
+    <Content Include="User_Control\top_menu.ascx" />
+    <Content Include="User_Control\user_name.ascx" />
+    <Content Include="user_hubs.aspx" />
+    <Content Include="user_rights.aspx" />
+    <Content Include="Styles\images\Login-Box.jpg" />
+    <Content Include="Styles\data_pages.css" />
+    <Content Include="Styles\master.css" />
+    <Content Include="Styles\login.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="dispatch_map.aspx" />
+    <Content Include="dispatch_data.aspx" />
+    <Content Include="WebFunction.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Info\ManifestInfo.vb" />
+    <Compile Include="Classes\Info\OrderMissingFromStop.vb" />
+    <Compile Include="Classes\Info\StopTimeFrame.vb" />
+    <Compile Include="Classes\Info\LatLng.vb" />
+    <Compile Include="Classes\Info\MarkerData.vb" />
+    <Compile Include="Classes\nuVizz\NuvizzAletrs.vb" />
+    <Compile Include="Classes\nuVizz\StopClass.vb" />
+    <Compile Include="Classes\Dispatch.vb" />
+    <Compile Include="Classes\Reports.vb" />
+    <Compile Include="man_api.aspx.designer.vb">
+      <DependentUpon>man_api.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="man_api.aspx.vb">
+      <DependentUpon>man_api.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="map_view.aspx.designer.vb">
+      <DependentUpon>map_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="map_view.aspx.vb">
+      <DependentUpon>map_view.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="nvrun.aspx.designer.vb">
+      <DependentUpon>nvrun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nvrun.aspx.vb">
+      <DependentUpon>nvrun.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\cr_bol.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cr_bol.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_Pull.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Pull.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TaskSheetReport1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskSheetReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\cr_Ticket.vb">
+      <DependentUpon>cr_Ticket.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="reports_admin.aspx.designer.vb">
+      <DependentUpon>reports_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports_admin.aspx.vb">
+      <DependentUpon>reports_admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Campus.aspx.designer.vb">
+      <DependentUpon>Campus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Campus.aspx.vb">
+      <DependentUpon>Campus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\GoogleApi.vb" />
+    <Compile Include="Classes\ClsMail.vb" />
+    <Compile Include="Classes\Interface1.vb" />
+    <Compile Include="Classes\nuVizz\nuVizzAPI.vb" />
+    <Compile Include="Classes\Onfleet\TaskClass.vb" />
+    <Compile Include="Classes\Onfleet\TeamClass.vb" />
+    <Compile Include="Classes\Onfleet\WorkerClass.vb" />
+    <Compile Include="Classes\WorkerOperations.vb" />
+    <Compile Include="nv_export.aspx.designer.vb">
+      <DependentUpon>nv_export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nv_export.aspx.vb">
+      <DependentUpon>nv_export.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.vb">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.vb">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Trash\export_batches.aspx.designer.vb">
+      <DependentUpon>export_batches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trash\export_batches.aspx.vb">
+      <DependentUpon>export_batches.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="getof.aspx.designer.vb">
+      <DependentUpon>getof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getof.aspx.vb">
+      <DependentUpon>getof.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="reports.aspx.designer.vb">
+      <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports.aspx.vb">
+      <DependentUpon>reports.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="menu_action.aspx.designer.vb">
+      <DependentUpon>menu_action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="menu_action.aspx.vb">
+      <DependentUpon>menu_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\Qualification_Sub.vb" />
+    <Compile Include="Classes\Programs.vb" />
+    <Compile Include="PinnaclePlus_master.Master.designer.vb">
+      <DependentUpon>PinnaclePlus_master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PinnaclePlus_master.Master.vb">
+      <DependentUpon>PinnaclePlus_master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\Location.vb" />
+    <Compile Include="Classes\Config.vb" />
+    <Compile Include="Classes\Exam_Schedule.vb" />
+    <Compile Include="Classes\Onfleet\OnfleetAPI.vb" />
+    <Compile Include="Classes\Module_Category.vb" />
+    <Compile Include="Classes\Questions.vb" />
+    <Compile Include="Classes\Module_Category_Level.vb" />
+    <Compile Include="Classes\OrderBatch.vb" />
+    <Compile Include="Classes\Info\Admin_User.vb" />
+    <Compile Include="Classes\DataSQL.vb" />
+    <Compile Include="Classes\User_Logic.vb" />
+    <Compile Include="default.aspx.designer.vb">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.vb">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.vb">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.vb">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="log_out.aspx.designer.vb">
+      <DependentUpon>log_out.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="log_out.aspx.vb">
+      <DependentUpon>log_out.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="config_change.aspx.designer.vb">
+      <DependentUpon>config_change.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="config_change.aspx.vb">
+      <DependentUpon>config_change.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="Reports\trash\PullSheet.vb">
+      <DependentUpon>PullSheet.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="users.aspx.designer.vb">
+      <DependentUpon>users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users.aspx.vb">
+      <DependentUpon>users.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="no_rights.aspx.designer.vb">
+      <DependentUpon>no_rights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="no_rights.aspx.vb">
+      <DependentUpon>no_rights.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\left_menu.ascx.designer.vb">
+      <DependentUpon>left_menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\left_menu.ascx.vb">
+      <DependentUpon>left_menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\top_menu.ascx.designer.vb">
+      <DependentUpon>top_menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\top_menu.ascx.vb">
+      <DependentUpon>top_menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\user_name.ascx.designer.vb">
+      <DependentUpon>user_name.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\user_name.ascx.vb">
+      <DependentUpon>user_name.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user_hubs.aspx.designer.vb">
+      <DependentUpon>user_hubs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user_hubs.aspx.vb">
+      <DependentUpon>user_hubs.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="user_rights.aspx.designer.vb">
+      <DependentUpon>user_rights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user_rights.aspx.vb">
+      <DependentUpon>user_rights.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="dispatch_map.aspx.designer.vb">
+      <DependentUpon>dispatch_map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dispatch_map.aspx.vb">
+      <DependentUpon>dispatch_map.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="dispatch_data.aspx.designer.vb">
+      <DependentUpon>dispatch_data.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dispatch_data.aspx.vb">
+      <DependentUpon>dispatch_data.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebFunction.aspx.designer.vb">
+      <DependentUpon>WebFunction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFunction.aspx.vb">
+      <DependentUpon>WebFunction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\cr_bol.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cr_bol.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\trash\PullSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PullSheet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_Pull.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Pull.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TaskSheetReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TaskSheetReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\cr_Ticket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cr_Ticket.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PinnaclePlus_master.Master" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\PPlus.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PinnacleSecurity\PinnacleFunctions.csproj">
+      <Project>{c2071141-ce95-4a4d-b58b-b040b0e346f3}</Project>
+      <Name>PinnacleFunctions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8865</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8855/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

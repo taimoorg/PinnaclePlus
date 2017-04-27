@@ -1,0 +1,272 @@
+﻿html, body{
+    margin:0;padding:0;
+    font-size:16px;
+    font-family:'Segoe UI';
+}
+.main_table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width:100%;
+}
+.top_bar
+{
+    background-color:#5db2ff;
+    color:#ffffff;
+    
+    height:50px;
+}
+.top_bar .logo
+{
+    margin-left:5px;
+    background:url(images/logo.png);
+    background-repeat:no-repeat;
+    background-position:center;
+height:50px;
+width:176px;
+float:left;
+}
+.top_bar .logo_text
+{
+    padding-left:13px;
+    padding-right :13px;
+    border-left: 1px solid #ffffff;
+    border-top: 0px ;
+    border-right: 0px ;
+    border-bottom: 0px ;
+    height:50px;
+    line-height:50px;
+    font-size:20px;
+    float:left;
+}
+.top_bar .top_menu
+{
+    height:50px;
+    float:left;
+    
+    margin:0;
+}
+.top_bar .top_menu ul
+{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    height:50px;
+    
+}
+.top_bar .top_menu ul li
+{
+    margin:0;
+    height:50px;
+    border-left: 1px solid #ffffff;
+    float:left;
+}
+.top_bar .top_menu ul li.last
+{
+    border-left: 1px solid #ffffff;
+    border-right : 1px solid #ffffff;
+}
+.top_bar .top_menu ul li a
+{
+    display:block;
+    margin:0;
+    text-align:center;
+    line-height:50px;
+    height:50px;
+    width:130px;
+    color:#ffffff;
+    text-decoration:none;
+}
+.top_bar .top_menu ul li a.selected
+{
+    display:block;
+    margin:0;
+    background-color:#4789c4;
+    text-align:center;
+    line-height:50px;
+    height:50px;
+    width:130px;
+    color:#ffffff;
+    text-decoration:none;
+}
+.top_bar .top_menu ul li a:hover
+{
+    background-color:#4789c4;
+    font-weight:bold;
+}
+
+
+.top_bar .top_menu_right
+{
+    height:50px;
+    float:right;
+    font-size:12px;
+    margin:0;
+}
+.top_bar .top_menu_right ul
+{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    height:50px;
+    
+}
+.top_bar .top_menu_right ul li
+{
+    margin:0;
+    height:50px;
+    float:right;
+    display:block;
+    text-align:center;
+    line-height:50px;
+    white-space:nowrap;
+    color:#ffffff;
+    text-decoration:none;
+}
+
+.top_bar .top_menu_right ul li a
+{
+    display:block;
+    padding-left:10px;
+    padding-right:10px;
+    margin:0;
+    text-align:center;
+    line-height:50px;
+    height:50px;
+    white-space:nowrap;
+    color:#ffffff;
+    text-decoration:none;
+}
+
+.top_bar .top_menu_right ul li a:hover
+{
+    background-color:#4789c4;
+    
+}
+
+
+.sub_menu
+{
+    display:block;
+    width:100%;
+    height:32px;
+    background-color:#f3f3f3;
+    vertical-align:top;
+     font-size:13px;
+}
+
+.sub_menu ul
+{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+.sub_menu ul li
+{
+    margin:0;
+    height:30px;
+    float:left;
+   width:150px;
+   border-right:solid 2px #a3ccff ;
+}
+
+.sub_menu ul li a
+{
+    display:block;
+    margin:0;
+   padding-left:0px;
+    text-align:center;
+    line-height:30px;
+    height:30px;
+    color:#000;
+    text-decoration:none;
+}
+.sub_menu ul li a.selected
+{
+    display:block;
+    margin:0;
+   padding-left:0px;
+    text-align:center;
+    line-height:30px;
+    height:30px;
+    color:#000;
+    background-color:#cccccc;
+    text-decoration:none;
+}
+.sub_menu ul li a:hover
+{
+    background-color:#e0e0e0;
+    
+}
+
+.content
+{
+    vertical-align:top;
+    display:block;
+
+}
+.info_label
+{
+   background-color:#ddecfe;
+	font-family:verdana;
+	font-size:12pt;
+	font-weight:normal ;
+	color:#005da1;
+}
+.Group_Cap
+{
+	background-color:#ddecfe;
+	font-family:verdana;
+	font-size:13pt;
+	font-weight:bold;
+	color:#005da1;
+}
+.AppLabel
+{
+	font-family: verdana;
+	font-size:smaller ;
+	font-weight: normal;
+	color: #000000;
+	vertical-align:middle;
+	text-align:left;
+	white-space:nowrap;
+   
+}
+.app_label_man
+{
+	font-family: verdana;
+	font-size: 8pt;
+	color: #000000;
+    background-color:#cecece;
+	vertical-align:middle;
+	text-align:center;
+	white-space:nowrap;
+}
+.app_label_man1
+{
+	font-family: verdana;
+	font-size: 8pt;
+	color: #000000;
+    background-color:#f1f2f1;
+	vertical-align:middle;
+	text-align:center;
+	white-space:nowrap;
+}
+.error
+{
+    
+
+	font-size:12pt;
+	font-weight:bold;
+    text-align:center;
+	color:#ff0000;
+}
+.error_small
+{
+    
+
+	font-size:8pt;
+    text-align:center;
+	color:#ff0000;
+}
+

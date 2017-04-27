@@ -1,0 +1,15 @@
+MemoryStream finalStream = new MemoryStream();
+PdfCopyFields copy = new PdfCopyFields(finalStream);
+string file1Path = "Sample1.pdf";
+string file2Path = "Sample2.pdf";
+
+var ms1 = new MemoryStream(File.ReadAllBytes(file1Path));
+ms1.Position = 0;
+copy.AddDocument(new PdfReader(ms1));
+ms1.Dispose();
+
+var ms2 = new MemoryStream(File.ReadAllBytes(file2Path));
+ms2.Position = 0;
+copy.AddDocument(new PdfReader(ms2));
+ms2.Dispose();
+copy.Close();

@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="nuVizzIntegrationUserPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">aSdfg#1234</Value>
+    </Setting>
+    <Setting Name="nuVizzIntegrationUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">integration</Value>
+    </Setting>
+    <Setting Name="nuVizzIntegrationCompanyCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">metrop</Value>
+    </Setting>
+    <Setting Name="nuVizz_xml_path" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\metro\pplus\nv_xml\</Value>
+    </Setting>
+    <Setting Name="nuVizzApiURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://nuvizzapps.com</Value>
+    </Setting>
+    <Setting Name="Pinnacle_File_Path" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">E:\Metro_production_applications\Prod_Pinnacle\Content\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

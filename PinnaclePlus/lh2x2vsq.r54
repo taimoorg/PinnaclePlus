@@ -1,0 +1,251 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/PinnaclePlus_master.Master" CodeBehind="dispatch_map.aspx.vb" Inherits=".dispatch_map" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+       #dvMap {
+        height: calc(100vh - 115px);
+        width: calc(100% - 400px);
+        display:block;
+        float:left ;
+       }
+       #pin_tools{
+           width: 400px;
+            height: calc(100vh - 115px);
+           float:left ;
+           display:block;
+           overflow-y: scroll ;
+       }
+       #tools_minifest{
+           border:solid 1px #e4e4e4; 
+           padding:2px;
+       }
+       #fresh_sel
+       {
+           border:solid 1px #e4e4e4; 
+           padding:2px;
+       }
+
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+  #selectable li { margin: 1px; padding: 1px; font-size: 10pt;  display:block; }
+  #selectable li:hover { background: #FECA40; }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDM7-igdY9_vzj7-1ASLXQmLHPxNDB3OHE&libraries=drawing"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+     <script type="text/javascript">
+         $(function () {
+             $("[id$=txtDate]").datepicker({
+                 changeMonth: true,
+                 changeYear: true,
+                 beforeShowDay: $.datepicker.noWeekends
+             });
+         });
+         
+    </script>
+    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <table>
+                <tr>
+                    <td>
+                        <asp:DropDownList ID="ddlHub" runat="server"></asp:DropDownList>
+                    </td>
+                    <td>
+                        Date:
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDate" runat="server" AutoPostBack="true"  ></asp:TextBox> 
+                    </td>
+                    <td>
+                        <asp:Button ID="btnReferesh" runat="server" Text="Refresh" />
+                    </td>
+                </tr>
+            </table>
+    </div>
+    
+                <script type="text/javascript">
+                    var markers = [<asp:Repeater ID="rptMarkers" runat="server">
+                        <ItemTemplate>{
+                            "title": '<%# Eval("Title")%>',
+                            "lat": <%# Eval("lat")%>,
+                            "lng": <%# Eval("lng")%>,
+                            "icon": '<%# Eval("Icon")%>',
+                            "clickable":<%# Eval("clickable")%>,
+                            "M_ID":'<%# Eval("M_ID")%>',
+                            "Sel_Icon":'<%# Eval("Sel_Icon")%>',
+                            "Info":'<%# Eval("Info")%>',
+                            "OrderCount":<%# Eval("OrderCount")%>
+                        }</ItemTemplate><SeparatorTemplate>,</SeparatorTemplate></asp:Repeater>];
+        var selMarkers=[];
+        var allMarkers=[];
+        var shape=null;
+        var drawingManager ;
+        var uluru = { lat: markers[0].lat, lng: markers[0].lng};
+        var map ;
+
+        function GoTo(gt_lat,gt_lng)
+        {
+            var center = new google.maps.LatLng(gt_lat,gt_lng);
+            map.panTo(center);
+            map.setZoom(15);
+        }
+        function DisplayList()
+        {
+            var txthtml="";
+            var Ids="";
+            var OrderCnt=0;
+            
+            for (i = 0; i<selMarkers.length;i++)
+            {
+                txthtml=txthtml+ "<li class='ui-widget-content' onClick='GoTo("+ selMarkers[i].position.lat() +","+ selMarkers[i].position.lng() +")' >" + selMarkers[i].getTitle().replace('\n','<br/>') + "</li>";
+                OrderCnt=OrderCnt+selMarkers[i].OrderCount;
+                Ids=Ids+ selMarkers[i].M_ID +":";
+            }
+            txthtml="<li class='ui-widget-content' style='font-weight:bold' >Stop Count:"+ selMarkers.length +" Order Count:"+ OrderCnt +"</li>" + txthtml;
+            
+            $("[id$=hfStops]").val(Ids);
+            $("#selectable").html(txthtml);
+         
+        }
+    </script>
+
+
+<script type="text/javascript">
+    
+    window.onload = function () {
+        
+         drawingManager = new google.maps.drawing.DrawingManager();
+        map = new google.maps.Map(document.getElementById('dvMap'), {
+            zoom:6
+            ,
+            center: uluru
+        });
+        drawingManager.setOptions({
+            //drawingMode : google.maps.drawing.OverlayType.RECTANGLE,
+            drawingControl : true,
+            drawingControlOptions : {
+                position : google.maps.ControlPosition.TOP_CENTER,
+                drawingModes : [ google.maps.drawing.OverlayType.RECTANGLE,google.maps.drawing.OverlayType.CIRCLE ]
+            },
+            rectangleOptions : {
+                strokeColor : '#a3ccff',
+                strokeWeight : 1,
+                fillColor : '#b8b8b8',
+                fillOpacity : 0.6
+                //,
+                //editable: true,
+                //draggable: true
+            }	
+        });
+        // Loading the drawing Tool in the Map.
+        drawingManager.setMap(map);
+
+        google.maps.event.addListener(drawingManager, 'overlaycomplete', function(e) {
+            //if (shape==null)
+            //{
+            //    shape=e;
+            //}
+            //else
+            //{
+            //    shape.overlay.setMap(null);
+            //    shape=e;
+            //}
+
+            var bounds = new google.maps.LatLngBounds(e.overlay.getBounds().getSouthWest(), e.overlay.getBounds().getNorthEast());
+            for (a=0;a<allMarkers.length;a++) {
+                if (allMarkers[a].clickable1 && bounds.contains(new google.maps.LatLng(allMarkers[a].position.lat(), allMarkers[a].position.lng()))) {
+                    PushMarker(allMarkers[a]);
+                }
+            }
+            e.overlay.setMap(null);
+        });
+
+        var infoWindow = new google.maps.InfoWindow();
+        
+        for (i = 0; i < markers.length; i++) {
+            var data = markers[i]
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title,
+                M_ID:data.M_ID,
+                Icon:data.icon,
+                My_Icon:data.icon,
+                Sel_Icon:data.Sel_Icon,
+                clickable1:data.clickable,
+                OrderCount:data.OrderCount
+            });
+            allMarkers.push(marker);
+            (function (marker, data) {
+                
+                
+                google.maps.event.addListener(marker, "rightclick", function (e) {
+                    infoWindow.setContent(data.Info);
+                    infoWindow.open(map, marker);
+                });
+                google.maps.event.addListener(marker, "click", function (e) {
+                    if (marker.clickable1)
+                    {
+                    
+                        PushMarker(marker);
+                    }
+                });
+            })(marker, data);
+        }//End For
+        function PushMarker(l_marker)
+        {
+            var found
+            found=false;
+            for (i = 0; i<selMarkers.length;i++)
+            {
+                if (l_marker.M_ID==selMarkers[i].M_ID)
+                {
+                    l_marker.setIcon(l_marker.My_Icon);
+                    selMarkers.splice(i,1);
+                    found=true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                l_marker.setIcon(l_marker.Sel_Icon);
+                selMarkers.push(l_marker);
+            }
+                    
+            DisplayList();
+        }
+
+    }
+
+    
+
+</script>
+    <div>
+    <div id="dvMap">
+    </div>
+        <div id="pin_tools">
+            <div id="tools_minifest">
+                <asp:DropDownList ID="ddlManifest" runat="server" Width="100%"></asp:DropDownList>
+                <asp:DropDownList ID="ddlDriver" runat="server" Width="50%" placeholder="Driver"></asp:DropDownList><asp:DropDownList ID="ddlTruck" runat="server" Width="50%"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCoDriver1" runat="server" Width="50%"></asp:DropDownList><asp:DropDownList ID="ddlCoDriver2" runat="server" Width="50%"></asp:DropDownList>
+                <asp:Button ID="btnSave" runat="server" Text="Button" />
+            </div>
+            <div id="fresh_old">
+                <ol id="selectable">
+                    <li class='ui-widget-content' style='font-weight:bold' >No Stop Selected</li>
+                </ol>
+            </div>
+            <div id="fresh_sel">
+                <ol id="selectable">
+                    <li class='ui-widget-content' style='font-weight:bold' >No Stop Selected</li>
+                </ol>
+            </div>
+        </div>
+        </div>
+
+    <asp:HiddenField ID="hfStops" runat="server" />
+</asp:Content>

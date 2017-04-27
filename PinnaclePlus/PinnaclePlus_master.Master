@@ -1,0 +1,70 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="PinnaclePlus_master.Master.vb" Inherits=".PinnaclePlus_master" %>
+
+<%@ Register src="User_Control/top_menu.ascx" tagname="top_menu" tagprefix="uc1" %>
+
+<%@ Register src="User_Control/left_menu.ascx" tagname="left_menu" tagprefix="uc2" %>
+
+<%@ Register src="User_Control/user_name.ascx" tagname="user_name" tagprefix="uc3" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>PinnaclePlus</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <link href="Styles/master.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/menu_css.css" rel="stylesheet" type="text/css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <script>
+     $(function () {
+         setInterval(StayALive, 600000);
+     });
+     function StayALive() {
+
+         $.ajax({type: "POST",
+             url: "WebFunction.aspx/StayALive",
+             contentType: "application/json; charset=utf-8",
+             dataType: "json",
+             success: function (response) {
+             },
+             failure: function (response) {
+             },
+             error: function (response) {
+             }
+         });
+     }
+    </script>
+</head>
+<body >
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div style="background-color:#ff0000;color:#ffffff;font-size:20pt;font-weight:bold;text-align:center" runat="server" id="testdiv">Test System</div>
+        <div class="top_bar">
+            <div class="logo"></div>
+            <div class="top_menu">
+                <uc1:top_menu ID="top_menu1" runat="server" />
+            </div>
+            <div class="top_menu_right">
+                <ul>
+                    <li><a href="log_out.aspx">Log Out</a></li>
+                    <li>
+                        <uc3:user_name ID="user_name1" runat="server" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub_menu">
+            <uc2:left_menu ID="left_menu1" runat="server" />
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
