@@ -12,7 +12,6 @@
         $(document).ready(function () {
             AutoComplete();
         });
-
         function AutoComplete() {
             $("#<%=txtSearch.ClientID %>").autocomplete({
                  autoFocus: true,
