@@ -14,6 +14,42 @@ Option Explicit On
 Partial Public Class dispatch_data
 
     '''<summary>
+    '''txtDateFrom control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDateFrom As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDateTo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDateTo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtLoadNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtLoadNo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPoMNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPoMNo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''ddlHub control.
     '''</summary>
     '''<remarks>
@@ -23,29 +59,38 @@ Partial Public Class dispatch_data
     Protected WithEvents ddlHub As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''txtDate control.
+    '''ddlException control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDate As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlException As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlManifest control.
+    '''btnSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlManifest As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents btnSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''tbldata control.
+    '''btntoExcel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tbldata As Global.System.Web.UI.WebControls.Table
+    Protected WithEvents btntoExcel As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvPara control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvPara As Global.System.Web.UI.WebControls.GridView
 End Class
