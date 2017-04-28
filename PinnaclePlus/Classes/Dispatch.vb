@@ -178,5 +178,46 @@ Namespace PinnaclePlus.SQLData
             objDatabase = DatabaseFactory.CreateDatabase()
             objDatabase.ExecuteNonQuery("P_Attach_Image", MSOED_ID, OrderNo, FileName, Path, Description, is_private, DocType)
         End Sub
+        Public Shared Function P_OrderCompleted_WithException(startDate As Date, endDate As Date) As DataTable
+            Dim objDatabase As Database
+            Dim DS As New DataSet
+            Dim cmd As System.Data.Common.DbCommand
+            objDatabase = DatabaseFactory.CreateDatabase()
+            cmd = objDatabase.GetStoredProcCommand("P_OrderCompleted_WithException", startDate, endDate)
+            cmd.CommandTimeout = 30
+            objDatabase.LoadDataSet(cmd, DS, "tmp")
+            'Return CType(objDatabase.ExecuteDataSet("P_Stops_Get", Date_, Hub, StartDate), DataSet).Tables(0)
+            Return DS.Tables(0)
+        End Function
+        Public Shared Function HasException_GeneratedAgainstManifest(StopNumber As Integer) As Boolean
+            Dim objDatabase As Database
+            objDatabase = DatabaseFactory.CreateDatabase()
+            Return CType(objDatabase.ExecuteDataSet("HasException_GeneratedAgainstManifest", StopNumber), DataSet).Tables(0).Rows(0).Item(0)
+        End Function
+        Public Shared Function P_ExceptionAgainst_Menifest(MSO_ID As Integer) As DataTable
+            Dim objDatabase As Database
+            objDatabase = DatabaseFactory.CreateDatabase()
+            Dim DS As New DataSet
+            Dim cmd As System.Data.Common.DbCommand
+            cmd = objDatabase.GetStoredProcCommand("P_ExceptionAgainst_Menifest", MSO_ID)
+            cmd.CommandTimeout = 30
+            objDatabase.LoadDataSet(cmd, DS, "tmp")
+            Return DS.Tables(0)
+
+            'Return CType(objDatabase.ExecuteDataSet("P_ExceptionAgainst_Menifest", MSO_ID), DataSet).Tables(0).Rows(0)
+        End Function
+        Public Shared Function P_DetailsAgainst_Menifest(MSO_ID As Integer) As DataTable
+            Dim objDatabase As Database
+            objDatabase = DatabaseFactory.CreateDatabase()
+            Dim DS As New DataSet
+            Dim cmd As System.Data.Common.DbCommand
+            cmd = objDatabase.GetStoredProcCommand("P_DetailsAgainst_Menifest", MSO_ID)
+            cmd.CommandTimeout = 30
+            objDatabase.LoadDataSet(cmd, DS, "tmp")
+            Return DS.Tables(0)
+
+            'Return CType(objDatabase.ExecuteDataSet("P_ExceptionAgainst_Menifest", MSO_ID), DataSet).Tables(0).Rows(0)
+        End Function
     End Class
+
 End Namespace

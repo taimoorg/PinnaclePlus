@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false"  enableEventValidation="false" MasterPageFile="~/PinnaclePlus_master.Master" CodeBehind="reports_admin.aspx.vb" Inherits=".reports_admin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 <%--    <link rel="stylesheet" href="/resources/demos/style.css" />--%>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -136,18 +134,14 @@
                 </tr>
                 <tr>
                     <td>Description: </td>
-                    <td>
-                        <asp:TextBox ID="txtDes" runat="server" Width="1000"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtDes" runat="server" Width="1000"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:CheckBox ID="chkIsPP" runat="server" Text="Is Pinnacle Plus" /></td>
-
+                    <td><asp:CheckBox ID="chkIsPP" runat="server" Text="Is Pinnacle Plus" /></td>
                 </tr>
                 <tr>
                     <td>Query </td>
-                    <td>
-                        <asp:TextBox ID="txtQuery" runat="server" Width="1000" TextMode="MultiLine" Rows="40"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtQuery" runat="server" Width="1000" TextMode="MultiLine" Rows="40"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td></td>

@@ -23,15 +23,6 @@ Partial Public Class user_hubs
     Protected WithEvents ddlUser As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''btnRemoveAll control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnRemoveAll As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''tblData control.
     '''</summary>
     '''<remarks>

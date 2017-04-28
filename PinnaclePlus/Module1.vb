@@ -6,6 +6,22 @@ Module PinnaclePlusGlobals
     Public Admission_Status As Integer
     Public Session_Name As String
     Public Hostel_Seats As Integer
+
+    Public Sub GetDocument(MSOED_ID As Integer)
+        Dim DR As DataRow
+
+        DR = PinnaclePlus.SQLData.GeneralOperations.ExecuteSelectSingleRow(String.Format("select * from T_Manifest_Stop_Order_Event_Doc where MSOED_ID={0}", MSOED_ID))
+        Dim binaryData() As Byte = Convert.FromBase64String(DR.Item("DocumentData"))
+        If DR.Item("DocumentExtType") = "pdf" Then
+            HttpContext.Current.Response.ContentType = "application/pdf"
+        Else
+            HttpContext.Current.Response.ContentType = String.Format("image/{0}", DR.Item("DocumentExtType"))
+        End If
+        HttpContext.Current.Response.ContentType = "application/octet-stream"
+        HttpContext.Current.Response.AddHeader("Content-Disposition", String.Format("attachment; filename={0}.{1}", DR.Item("DocumentName"), DR.Item("DocumentExtType")))
+        HttpContext.Current.Response.OutputStream.Write(binaryData, 0, binaryData.Length)
+        HttpContext.Current.Response.Flush()
+    End Sub
     Public Enum Report_Para_Type
         GeneralText = 10
         OrderNo = 20

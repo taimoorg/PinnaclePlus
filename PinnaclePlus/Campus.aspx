@@ -1,5 +1,6 @@
 ﻿e<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/PinnaclePlus_master.Master" CodeBehind="Campus.aspx.vb" Inherits=".Campus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Pinnacle Plus: Campus</title>
     <link href="Styles/data_pages.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

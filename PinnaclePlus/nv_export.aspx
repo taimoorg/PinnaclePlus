@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/PinnaclePlus_master.Master" CodeBehind="nv_export.aspx.vb" Inherits=".nv_export" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Pinnacle Plus: Export</title>
     <link href="Styles/data_pages.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>

@@ -117,5 +117,7 @@ Namespace PinnaclePlus.SQLData
             objDatabase = DatabaseFactory.CreateDatabase("SqlStrPin")
             objDatabase.ExecuteNonQuery("Metro_AddOrderGeneralComment", OrderID, Comment, True, "1978", 10000, 1)
         End Sub
+        'Farrukh Procedure for Report Rights
+      
     End Class
 End Namespace

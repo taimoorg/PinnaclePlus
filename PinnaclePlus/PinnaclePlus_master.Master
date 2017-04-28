@@ -10,9 +10,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>PinnaclePlus</title>
+    <%--<title>PinnaclePlus</title>--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
-
+        
     </asp:ContentPlaceHolder>
     <link href="Styles/master.css" rel="stylesheet" type="text/css" />
     <link href="Styles/menu_css.css" rel="stylesheet" type="text/css" />

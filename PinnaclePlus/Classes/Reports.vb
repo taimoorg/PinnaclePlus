@@ -10,10 +10,10 @@ Namespace PinnaclePlus.SQLData
             objDatabase = DatabaseFactory.CreateDatabase()
             Return CType(objDatabase.ExecuteDataSet("P_Report_IU", REP_ID, Name, Query, Des, IsPP), DataSet).Tables(0).Rows(0).Item(0)
         End Function
-        Public Shared Sub P_Users_Report_ID(User_ID As String, REP_ID As Integer, Has As Boolean)
+        Public Shared Sub P_Users_Report_ID(User_ID As String, REP_ID As Integer)
             Dim objDatabase As Database
             objDatabase = DatabaseFactory.CreateDatabase()
-            objDatabase.ExecuteNonQuery("P_Users_Report_ID", User_ID, REP_ID, Has)
+            objDatabase.ExecuteNonQuery("P_Users_Report_ID", User_ID, REP_ID)
         End Sub
         Public Shared Sub P_Report_Para_IU(RP_ID As Integer, REP_ID As Integer, Name As String, Description As String, Order_ As Integer, Width As Integer, Rows_ As Object, Para_Type As Integer)
 
@@ -46,5 +46,20 @@ Namespace PinnaclePlus.SQLData
             objDatabase = DatabaseFactory.CreateDatabase()
             Return CType(objDatabase.ExecuteDataSet("P_Report_AutoComplete", SearchText), DataSet).Tables(0)
         End Function
+
+        Public Shared Function User_ReportRights(Rep_ID As Integer) As DataTable
+
+            Dim objDatabase As Database
+            objDatabase = DatabaseFactory.CreateDatabase()
+            Return CType(objDatabase.ExecuteDataSet("User_ReportRights", Rep_ID), DataSet).Tables(0)
+
+        End Function
+        Public Shared Function User_ReportRights_Check(Rep_ID As Integer, USERID As String) As Boolean
+
+            Dim objDatabase As Database
+            objDatabase = DatabaseFactory.CreateDatabase()
+            Return CType(objDatabase.ExecuteDataSet("User_ReportRights_Check", Rep_ID, USERID), DataSet).Tables(0).Rows(0).Item(0)
+
+        End Function 
     End Class
 End Namespace

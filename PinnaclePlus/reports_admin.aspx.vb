@@ -83,19 +83,19 @@
             txtDes.Text = ""
             chkIsPP.Checked = False
         End If
-        DT = PinnaclePlus.SQLData.GeneralOperations.ExecuteSelect(String.Format("select u.[USER_ID],(select count([USER_ID]) from T_Users_Report where REP_ID={0} and u.[USER_ID]=[USER_ID]) Has from  [dbo].[T_Users] u where Is_Admin=0", REP_ID.Value))
-        lstUsers.Items.Clear()
-        For i = 0 To DT.Rows.Count - 1
-            LI = New ListItem
-            LI.Text = DT.Rows(i).Item("USER_ID")
-            If DT.Rows(i).Item("Has") = 1 Then
-                LI.Selected = True
-            Else
-                LI.Selected = False
-            End If
-            lstUsers.Items.Add(LI)
+        'DT = PinnaclePlus.SQLData.GeneralOperations.ExecuteSelect(String.Format("select u.[USER_ID],(select count([USER_ID]) from T_Users_Report where REP_ID={0} and u.[USER_ID]=[USER_ID]) Has from  [dbo].[T_Users] u where Is_Admin=0", REP_ID.Value))
+        'lstUsers.Items.Clear()
+        'For i = 0 To DT.Rows.Count - 1
+        '    LI = New ListItem
+        '    LI.Text = DT.Rows(i).Item("USER_ID")
+        '    If DT.Rows(i).Item("Has") = 1 Then
+        '        LI.Selected = True
+        '    Else
+        '        LI.Selected = False
+        '    End If
+        '    lstUsers.Items.Add(LI)
 
-        Next
+        'Next
         FillGridPara()
     End Sub
     Private Sub FillGridPara()
@@ -106,8 +106,6 @@
     End Sub
 
     Private Sub DelRecord(REP_ID As Integer)
-
-
         'Ret = 0 'PinnaclePlus.SQLData.Campus.P_Campus_Del(ID)
         'If Ret = 1 Then
         '    FillGrid()
@@ -166,10 +164,10 @@
         Next
 
 
-        For i = 0 To lstUsers.Items.Count - 1
-            Has = lstUsers.Items(i).Selected
-            PinnaclePlus.SQLData.Reports.P_Users_Report_ID(lstUsers.Items(i).Text, ID, Has)
-        Next
+        'For i = 0 To lstUsers.Items.Count - 1
+        '    Has = lstUsers.Items(i).Selected
+        '    PinnaclePlus.SQLData.Reports.P_Users_Report_ID(lstUsers.Items(i).Text, ID, Has)
+        'Next
         FillGrid()
         pnlData.Visible = True
         pnlEdit.Visible = False

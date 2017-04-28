@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/PinnaclePlus_master.Master" CodeBehind="dispatch_map.aspx.vb" Inherits=".dispatch_map" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Pinnacle Plus: Dispatch Map</title>
     <style>
 
 

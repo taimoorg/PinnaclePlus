@@ -100,7 +100,7 @@
                   }
               });
         });
-
+        
         $(function () {
             var availableTags1 = ["Alabama:AL",
 "Alaska:AK",
